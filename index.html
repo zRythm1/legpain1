@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers Go Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="numberPrint">0</h1>
+    <button id=upButton>Go Up</button>
+    <button id=downButton>Go Down</button>
+    <button id="double">Double</button>
+    <button id="reset">Reset</button>
+    <button id="secret">secret</button>
+    <h2 id="727"></h2>
+
+</body>
+<script>
+    let number = 0;
+    let numberPrinter = document.getElementById("numberPrint");
+    let secretPrinter = document.getElementById("727");
+    let upButton = document.getElementById("upButton");
+    let downButton = document.getElementById("downButton");
+    let doubleButton = document.getElementById("double");
+    let secretButton = document.getElementById("secret");
+    let resetButton = document.getElementById("reset");
+    upButton.onclick = function(){
+        number++
+        console.log(number);
+        numberPrinter.innerHTML = number;
+        return
+    }
+    downButton.onclick = function(){
+        number--
+        console.log(number);
+        numberPrinter.innerHTML = number;
+        return
+    }
+    doubleButton.onclick = function (){
+        number = number * 2;
+        console.log("hit");
+        numberPrinter.innerHTML = number;
+        return
+    }
+    secretButton.onclick = function (){
+        secretPrinter.innerHTML = "727";
+        return
+    }
+    resetButton.onclick = function (){
+        numberPrinter.innerHTML = 0
+    }
+    
+</script>
+</html>
