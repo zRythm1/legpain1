@@ -4,54 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numbers Go Up</title>
+    <title>Rainbow Six Operator Quiz</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="numberPrint">0</h1>
-    <button id=upButton>Go Up</button>
-    <button id=downButton>Go Down</button>
-    <button id="double">Double</button>
-    <button id="reset">Reset</button>
-    <button id="secret">secret</button>
-    <h2 id="727"></h2>
-
+    <form id=questions1>
+        <label for=""> Which operator is named Eliza Cohen?</label>
+        <br>
+        <input type="radio" id="ash" name="question1" value="ash">
+        <label for="ash">Ash</label>
+        <br>
+        <input type="radio" id="twitch" name="question1" value="twitch">
+        <label for="ash">Twitch</label>
+        <br>
+        <input type="radio" id="alibi" name="question1" value="alibi">
+        <label for="ash">Alibi</label>
+        <br>
+        <input type="radio" id="blitz" name="question1" value="blitz">
+        <label for="ash">Blitz</label>
+    </form>
+    <form id=questions2>
+        <label for="">Which operator is named Elias Kotz?</label>
+        <br>
+        <input type="radio" id="sledge" name="question2" value="sledge">
+        <label for="sledge">Sledge</label>
+        <br>
+        <input type="radio" id="rook" name="question2" value="rook">
+        <label for="rook">Rook</label>
+        <br>
+        <input type="radio" id="doc" name="question2" value="doc">
+        <label for="doc">Doc</label>
+        <br>
+        <input type="radio" id="blitz2" name="question2" value="blitz2">
+        <label for="blitz2">Blitz</label>
+    </form>
+    <form id=questions3>
+        <label for="">Which operator is named Sebastian Coté?</label>
+        <br>
+        <input type="radio" id="smoke" name="question3" value="smoke">
+        <label for="smoke">Smoke</label>
+        <br>
+        <input type="radio" id="jackal" name="question3" value="jackal">
+        <label for="jackal">Jackal</label>
+        <br>
+        <input type="radio" id="buck" name="question3" value="buck">
+        <label for="buck">Buck</label>
+        <br>
+        <input type="radio" id="bandit" name="question3" value="bandit">
+        <label for="bandit">Bandit</label>
+    </form>
+    <div class="buttonarea">
+        <button id="checkAnswers">Check Answers</button>
+    </div>
+    <h5 id="score">0/3</h5>
 </body>
 <script>
-    let number = 0;
-    let numberPrinter = document.getElementById("numberPrint");
-    let secretPrinter = document.getElementById("727");
-    let upButton = document.getElementById("upButton");
-    let downButton = document.getElementById("downButton");
-    let doubleButton = document.getElementById("double");
-    let secretButton = document.getElementById("secret");
-    let resetButton = document.getElementById("reset");
-    upButton.onclick = function(){
-        number++
-        console.log(number);
-        numberPrinter.innerHTML = number;
-        return
-    }
-    downButton.onclick = function(){
-        number--
-        console.log(number);
-        numberPrinter.innerHTML = number;
-        return
-    }
-    doubleButton.onclick = function (){
-        number = number * 2;
+    const button = document.getElementById("checkAnswers");
+    const scoreText = document.getElementById("score");
+    let score = 0;
+    button.onclick = function(){
         console.log("hit");
-        numberPrinter.innerHTML = number;
+        if(document.getElementById('ash').checked){
+            console.log("question 1 correct")
+            score++
+        }
+        if(document.getElementById('blitz2').checked){
+            console.log("question 2 correct")
+            score++
+        }
+        if(document.getElementById('buck').checked){
+            console.log("question 3 correct")
+            score++
+            
+        }
+        button.parentNode.removeChild(button);
+        scoreText.innerHTML = score + "/3 Correct";
         return
     }
-    secretButton.onclick = function (){
-        secretPrinter.innerHTML = "727";
-        return
-    }
-    resetButton.onclick = function (){
-        number = 0;
-        numberPrinter.innerHTML = number;
-    }
-    
 </script>
 </html>
