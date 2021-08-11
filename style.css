@@ -1,10 +1,70 @@
-h2 {
-    font-size: 200px;
-    color: gold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#questions1 {
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
 }
 
-#secret {
-    margin-left: 900px;
-    font-size: 5px;
+#questions2 {
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+#questions3 {
+    margin-bottom: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+#checkAnswers {
+    border-radius: 50px;
+    border-color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:lighter;
+    cursor:pointer
+}
+#checkAnswers:hover {
+    border-color: green;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+#ash:hover {
+    cursor:pointer
+}
+#twitch:hover {
+    cursor:pointer
+}
+#alibi:hover {
+    cursor:pointer
+}
+#blitz:hover {
+    cursor:pointer
+}
+#sledge:hover {
+    cursor:pointer
+}
+#rook:hover {
+    cursor:pointer
+}
+#doc:hover {
+    cursor:pointer
+}
+#blitz2:hover {
+    cursor:pointer
+}
+#smoke:hover {
+    cursor:pointer
+}
+#jackal:hover {
+    cursor:pointer
+}
+#buck:hover {
+    cursor:pointer
+}
+#bandit:hover {
+    cursor:pointer
 }
