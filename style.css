@@ -1,70 +1,118 @@
-#questions1 {
-    margin-bottom: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
+* {
+    box-sizing: border-box;
+  }
+
+#Numbers {
+    visibility:hidden;
 }
 
-#questions2 {
-    margin-bottom: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
-}
-#questions3 {
-    margin-bottom: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
-}
-#checkAnswers {
-    border-radius: 50px;
-    border-color: gray;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight:lighter;
-    cursor:pointer
-}
-#checkAnswers:hover {
-    border-color: green;
-    font-weight: bold;
+#Input {
+    visibility:hidden;
 }
 
+.content {
+    max-width: 500px;
+    margin: auto;
+}
 
+body {
+    background-color: grey;
+}
 
+.multiplcationSign {
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
+.numberClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: grey;
+}
 
+.numberClass {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: center;
+}
 
+.inputClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1000;
+    background-color: grey;
+    padding-bottom: 10px;
+}
 
-#ash:hover {
-    cursor:pointer
+.textBox {
+    border: 2px;
+    border-radius: 30px;
+    justify-content: center;
+    text-align: center;
 }
-#twitch:hover {
-    cursor:pointer
+
+.title {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 24px;
+    color: white;
 }
-#alibi:hover {
-    cursor:pointer
+
+.selectDifficulty {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight:200;
+    color: white;
 }
-#blitz:hover {
-    cursor:pointer
+.startClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    color: white;
+    font-family: cursive;
 }
-#sledge:hover {
-    cursor:pointer
+
+.startButton {
+    block-size: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    color: white;
+    font-size: 16px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: gray;
+
 }
-#rook:hover {
-    cursor:pointer
+.startButton:hover {
+    cursor:pointer;
+    border-width: 1.5px;
+    border-color: darkgrey;
 }
-#doc:hover {
-    cursor:pointer
+
+#startEasy:hover {
+    border-color: greenyellow;
 }
-#blitz2:hover {
-    cursor:pointer
+
+#startMedium:hover {
+    border-color: orange;
 }
-#smoke:hover {
-    cursor:pointer
-}
-#jackal:hover {
-    cursor:pointer
-}
-#buck:hover {
-    cursor:pointer
-}
-#bandit:hover {
-    cursor:pointer
+
+#startHard:hover {
+    border-color: red;
 }
