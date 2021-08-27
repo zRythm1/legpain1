@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="Introduction">
-        <h1 class="title">Josh's Multiplcation Game</h1>
+        <h1 class="title">Josh's Multiplication Game</h1>
+    </div>
+    <div id="correctvisible" class="CorrectAnswers">
+        <h3 id="correctHidden"class="correctAnswer">Answers Correct: 0</h3>
     </div>
     <div class="numberClass" id="Numbers">
         <h3 id="number1">Number1</h3>
@@ -33,6 +36,8 @@
     const number2Printer = document.getElementById("number2")
     const textBox = document.getElementById("textField")
     let multiplier = 0;
+    const corrrectAnswerPrinter = document.getElementById("correctHidden")
+    let correctAnswers = 0;
 
     function gameStartEasy(){
         console.log("Easy Difficulty");
@@ -40,6 +45,7 @@
         document.getElementById("selectDifficulty").remove();
         document.getElementById('Numbers').style.visibility = 'visible';
         document.getElementById('Input').style.visibility = 'visible';
+        document.getElementById('correctvisible').style.visibility = 'visible';
         multiplier = 11;
         return numberGenerator();
     }
@@ -49,6 +55,7 @@
         document.getElementById("selectDifficulty").remove();
         document.getElementById('Numbers').style.visibility = 'visible';
         document.getElementById('Input').style.visibility = 'visible';
+        document.getElementById('correctvisible').style.visibility = 'visible';
         multiplier = 21;
         return numberGenerator();
     }
@@ -58,6 +65,7 @@
         document.getElementById("selectDifficulty").remove();
         document.getElementById('Numbers').style.visibility = 'visible';
         document.getElementById('Input').style.visibility = 'visible';
+        document.getElementById('correctvisible').style.visibility = 'visible';
         multiplier = 51;
         return numberGenerator();
     }
@@ -86,6 +94,8 @@
 
         if (numbersMultiplied == textPrinter.value){
             console.log("Answer correct");
+            correctAnswers++
+            corrrectAnswerPrinter.innerHTML = `Answers Correct: ${correctAnswers} `;
             return numberGenerator();
         } else {
             console.log("Not correct yet");
