@@ -132,3 +132,7 @@ body {
 #startHard:hover {
     border-color: red;
 }
+
+#startCustom:hover {
+    border-color: blueviolet;
+}

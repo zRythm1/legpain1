@@ -28,7 +28,8 @@
     <div class="startClass" id="startButton">
         <button class="startButton"id="startEasy" onclick="gameStartEasy()">Easy</button>
         <button class="startButton"id="startMedium" onclick="gameStartMedium()">Medium</button>
-        <button class="startButton"id="startHard" onclick="gameStartHard()">Hard</button>
+        <button class="startButton"id="startHard" onclick="gameStartHard()">Hard</button>   
+        <button class="startButton"id="startCustom" onclick="gameStartCustom()">Custom</button>   
     </div>
 </body>
 <script>
@@ -66,18 +67,29 @@
         document.getElementById('Numbers').style.visibility = 'visible';
         document.getElementById('Input').style.visibility = 'visible';
         document.getElementById('correctvisible').style.visibility = 'visible';
-        multiplier = 51;
+        multiplier = 31;
         return numberGenerator();
     }
 
+    function gameStartCustom(){
+        console.log("Hard Difficulty");
+        document.getElementById("startButton").remove();
+        document.getElementById("selectDifficulty").remove();
+        document.getElementById('Numbers').style.visibility = 'visible';
+        document.getElementById('Input').style.visibility = 'visible';
+        document.getElementById('correctvisible').style.visibility = 'visible';
+        let selectMultiplier = window.prompt("Select maximum multiplier")
+        multiplier = selectMultiplier
+        return numberGenerator();
+    }
 
     function numberGenerator() {
         console.log("number gen activated");
         let number1 = Math.floor(Math.random() * multiplier);
         let number2 = Math.floor(Math.random() * multiplier);
         const textBox = document.getElementById("textField")
-        textBox.value = null;   
-
+        textBox.value = null; 
+        
         number1Printer.innerHTML = number1;
         number2Printer.innerHTML = number2;
         return checkAnswer();
