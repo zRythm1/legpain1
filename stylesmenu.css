@@ -1,0 +1,61 @@
+.titleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+    color: white;
+    font-weight: 600;
+}
+
+.body {
+    background-color: rgb(58, 58, 58);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.buttonbuttons {
+    border: 2px;
+    border-radius: 5px;
+    border-color: darkgrey;
+    outline: darkgrey;
+    margin-left: 10px;
+    background-color: rgb(37, 37, 37);
+    padding: 4px;
+    color: white;
+}
+
+.madeBy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white; !important
+    font-weight: lighter;
+    margin-top: 350px;
+    padding-top: 15px;
+}
+
+#addition:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+#subtraction:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+#multiplication:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+#division:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
