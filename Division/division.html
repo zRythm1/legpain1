@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="stylesdivision.css">
 </head>
 <body>
     <div class="Introduction">
-        <h1 class="title">Josh's Multiplication Game</h1>
+        <h1 class="title">Josh's Division Game</h1>
     </div>
     <div id="correctvisible" class="CorrectAnswers">
         <h3 id="correctHidden"class="correctAnswer">Answers Correct: 0</h3>
     </div>
     <div class="numberClass" id="Numbers">
         <h3 id="number1">Number1</h3>
-        <h3 class="multiplcationSign"> x </h3>
+        <h3 class="additionSign"> / </h3>
         <h3 id="number2">Number2</h3>
     </div>
     <div class="inputClass" id="Input">
@@ -84,27 +84,44 @@
     }
 
     function numberGenerator() {
-        console.log("number gen activated");
+        //console.log("number gen activated");
         let number1 = Math.floor(Math.random() * multiplier);
         let number2 = Math.floor(Math.random() * multiplier);
+
+        // The if statements are here to increase the number by 1 if it hits a 0 because otherwise it will bug out and give a correct answer for not doing anything.
+        if (number1 === 0){
+            number1++
+            console.log("number 1 was a 0, not anymore")
+        } else {
+            console.log("Number 1 isn't a 0");
+        }
+        if (number2 === 0){
+            number2++
+        } else {
+            console.log("Number 2 isn't a 0");
+        }
+        console.log(`Number1: ${number1}`);
+        console.log(`Number2: ${number2}`);
         const textBox = document.getElementById("textField")
         textBox.value = null; 
-        
         number1Printer.innerHTML = number1;
         number2Printer.innerHTML = number2;
         return checkAnswer();
-    }
-    function checkAnswer() {
-        console.log("Check answer activated");
-        //console.log(number1.textContent);
-        //console.log(number2.textContent);
-        //console.log(number1.textContent * number2.textContent);
-        let numbersMultiplied = number1.textContent * number2.textContent
-        console.log(numbersMultiplied);
+
+        }
+        
+
+    
+    function checkAnswer() {    
+        //console.log("Check answer activated");
+        let floatNumber1 = (parseFloat(number1.textContent))
+        let floatNumber2 = (parseFloat(number2.textContent))
+        let numbersDivided = Math.round(floatNumber1 / floatNumber2)
+        console.log(numbersDivided);
         textPrinter = document.getElementById("textField")
         console.log(textPrinter.value);
 
-        if (numbersMultiplied == textPrinter.value){
+        if (numbersDivided == textPrinter.value){
             console.log("Answer correct");
             correctAnswers++
             corrrectAnswerPrinter.innerHTML = `Answers Correct: ${correctAnswers} `;

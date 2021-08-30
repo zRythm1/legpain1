@@ -20,7 +20,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: rgb(58, 58, 58);
 }
 
 .multiplcationSign {
@@ -33,7 +33,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: grey;
+    background-color: rgb(58, 58, 58);
 }
 
 .numberClass {
@@ -47,7 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 1000;
-    background-color: grey;
+    background-color: rgb(58, 58, 58);
     padding-bottom: 10px;
 }
 
@@ -93,7 +93,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    background-color: rgb(58, 58, 58);grey;
     color: white;
     font-family: cursive;
 }
@@ -112,7 +112,7 @@ body {
     color: white;
     font-size: 16px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: gray;
+    background-color: rgb(58, 58, 58);
 
 }
 .startButton:hover {
