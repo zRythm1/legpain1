@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NowReact!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onclick="clickCheck()"id="body">
+    <div class="titleDiv">
+        <h5 class="titleText">React!</h5>
+    </div>
+    <div class="reactDiv">
+        <h5 id="reactPrint" class="reactText">Reacted In</h5>
+    </div>
+    <div class="restartDiv">
+        <h5 onclick="reload()"id="restartId" class="restartText">Restart</h5>
+    </div>
+    <div id=""class="startDiv">
+        <h5 id="startbtn"onclick="start()" class="startText">Start</h5>
+    </div>
+
+</body>
+
+<script>
+    const body = document.getElementById("body")
+    const startBtn = document.getElementById("startbtn");
+    let reactionTime = 0;
+    
+    let timeSecond = 999
+
+    function reload(){
+        location.reload();
+    }
+
+    function start(){
+        startBtn.style.visibility = "hidden"
+        const times = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let randomTime = times[Math.floor(Math.random() * times.length)];
+        timeSecond = randomTime
+        console.log(`Random Time: ${randomTime}`)
+        console.log("start activated")
+    }
+
+    function clickCheck(){
+        if(timeSecond <=0){
+            console.log("a pressed")
+            document.getElementById("reactPrint").style.visibility = "visible";
+            document.getElementById("restartId").style.visibility = "visible"
+            clearInterval(countUp)
+        }
+    }
+
+
+    const countDown = setInterval (()=> {
+        timeSecond--;
+        console.log(`Seconds remaining: ${timeSecond}`);
+        if(timeSecond <=0 || timeSecond<1){
+            clearInterval(countDown)
+            console.log("Countdown over")
+            game()
+        }
+    },1000) 
+
+    function game(){
+        body.style.backgroundColor = "red";
+    }
+
+    const countUp = setInterval( () => {
+        if(timeSecond <=0 || timeSecond<1){
+            let now = new Date();
+            let ms = now.getMilliseconds();
+            let s = now.getSeconds();
+            console.log(`Reaction Time: ${s}:${ms}`)
+            document.getElementById("reactPrint").innerHTML = `${s}:${ms}`
+            
+        }
+    }, 0)
+
+    
+
+
+
+</script>
+</html>
