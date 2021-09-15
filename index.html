@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Number Memory</h1>
+
+    <div class="lifeDiv">
+        <p class="lifes" id="lifes">3/3 Lives Remaining</p>
+    </div>
+    <div class="countdownDiv">
+        <p class="countdown" id="countDwn">5 seconds remaining</p>
+    </div>
+    <div class="numberdisplaydiv">
+        <p class="numberdisplay" id="numberPrinter">0</p>
+    </div>
+    <div class="inputDiv">
+        <input id="input" class="inputBox" type="text">
+    </div>
+    <div class="startDiv">
+        <p id="startBtn" onclick="start()" class="start">Start</p>
+    </div>
+</body>
+
+<script>
+    let lives = 3;
+    let numberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let timeRemaining = 5;
+    let rounds = 1;
+
+    const startButton = document.getElementById("startBtn");
+    const livesPrinter = document.getElementById("lifes");
+    const countdownDisplay = document.getElementById("countDwn");
+    const numberDisplay = document.getElementById("numberPrinter");
+    const inputBox = document.getElementById("input");
+    let number = 0;
+
+    inputBox.addEventListener("keydown", (key) =>{
+        if(key.keyCode === 13){
+            checkAnswer()
+        }
+    })
+
+    function start(){
+        console.log("Start activated")
+        startButton.remove();
+        livesPrinter.style.visibility = "visible"
+        countdownDisplay.style.visibility = "visible"
+        numberDisplay.style.visibility = "visible";
+        numberGenerator();
+    }
+
+    function numberGenerator(){
+        const randomNumber1 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber2 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber3 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber4 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber5 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber6 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber7 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber8 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber9 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber10 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber11 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber12 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber13 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber14 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber15 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        const randomNumber16 = numberArray[Math.floor(Math.random() * numberArray.length)]
+        if (rounds === 1){
+            console.log("Round 1 generator")
+            number = randomNumber1
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 2){
+            console.log("Round 2 generator")
+            number = randomNumber1 + '' + randomNumber2
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 3){
+            console.log("Round 3 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 4){
+            console.log("Round 4 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 5){
+            console.log("Round 5 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 6){
+            console.log("Round 6 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 7){
+            console.log("Round 7 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 8){
+            console.log("Round 8 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 9){
+            console.log("Round 9 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 10){
+            console.log("Round 10 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 11){
+            console.log("Round 11 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 12){
+            console.log("Round 12 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11 + '' + randomNumber12
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 13){
+            console.log("Round 13 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11 + '' + randomNumber12 + '' + randomNumber13
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 14){
+            console.log("Round 14 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11 + '' + randomNumber12 + '' + randomNumber13 + '' + randomNumber14
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 15){
+            console.log("Round 15 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11 + '' + randomNumber12 + '' + randomNumber13 + '' + randomNumber14 + '' + randomNumber15
+            numberDisplay.innerHTML = number
+            timing()
+        }
+        if (rounds === 16){
+            console.log("Round 16 generator")
+            number = randomNumber1 + '' + randomNumber2 + '' + randomNumber3  + '' + randomNumber4 + '' + randomNumber5 + '' + randomNumber6 + '' + randomNumber7 + '' + randomNumber8  + '' + randomNumber9 + '' + randomNumber10 + '' + randomNumber11 + '' + randomNumber12 + '' + randomNumber13 + '' + randomNumber14 + '' + randomNumber15 + '' + randomNumber16
+            numberDisplay.innerHTML = number
+            timing()
+        }
+    }
+
+    function timing() {
+        const timer = setInterval (()=> {
+        timeRemaining--;
+        countdownDisplay.innerHTML = `${timeRemaining} seconds remaining`;
+        console.log(`Seconds remaining: ${timeRemaining}`);
+        if(timeRemaining <=0 || timeRemaining<1){
+            clearInterval(timer)
+            changeVisibilityForAnswer();
+            console.log("Countdown over")
+        }
+    },1000) 
+    }
+
+    function changeVisibilityForAnswer(){
+        inputBox.style.visibility = "visible";
+        countdownDisplay.style.visibility = "hidden";
+        numberDisplay.style.visibility = "hidden";
+    }
+
+    function checkAnswer(){
+        console.log(`Input Value: ${inputBox.value}`)
+        console.log(`Number Value: ${number}`)
+        console.log("Check answer activated");
+        if(inputBox.value == number){
+            console.log("they are the same")
+            timeRemaining = 5;
+            countdownDisplay.innerHTML = `${timeRemaining} seconds remaining`
+            inputBox.style.visibility = "hidden";
+            inputBox.value = null;
+            rounds++
+            console.log(`Round: ${rounds}`);
+            start()
+        } else {
+            if(lives <= 0){
+                console.log("0 or less lives, you're dog shit")
+                location.reload()
+            }
+            console.log("They are not the same")
+            lives--
+            livesPrinter.innerHTML = `${lives}/3 Lives Remaining`;
+
+        }
+
+    }
+
+
+</script>
+
+</html>
