@@ -1,0 +1,72 @@
+#wordPrinter {
+    visibility: hidden;
+}
+
+#seenBtn {
+    visibility: hidden;
+}
+
+#newBtn {
+    visibility: hidden;
+}
+
+#scorePrinter {
+    visibility: hidden;
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+}
+
+h1 {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    justify-content: center;
+    font-size: 64px;
+}
+
+.StartBtn {
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    justify-content: center;
+    font-size: 42px;
+    margin-top: 350px;
+    font-weight: 200;
+}
+
+.StartBtn:hover {
+    cursor: pointer;
+    font-size: 46px;
+    transition: all, 0.5s;
+}
+
+.WordPrinter {
+    margin-top: -80px;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 64px;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 40px;
+    font-size: 32px;
+    margin-left: 12px;
+    background-color:rgb(36, 36, 36);
+    border: 2px;
+    border-radius: 12px;
+    color: white;
+}
+
+.btn:hover {
+    cursor: pointer;
+}

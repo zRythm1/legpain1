@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Verbal Memory</h1>
+    <h1 id="scorePrinter">0</h1>
+    <h2 onclick="start()" id="startBtn" class="StartBtn">Start</h2>
+    <h3 class="WordPrinter" id="wordPrinter">Word</h3>
+    <div class="buttonDiv">
+        <button onclick="checkAnswerSeen()" class="btn" id="seenBtn">Seen</button>
+        <button onclick="checkAnswerNew()" class="btn" id="newBtn">New</button>
+    </div>
+</body>
+
+<script>
+    //Variables
+    const words = ["hello", "what", "yes", "no", "excellent", "ostrich", "button", "language", "view", "viewing", "hi", "negative", "nope", "astronaut", "rectangle", "school", "fox", "lands", "dirt", "wood", "electronic", "electric", "chocolate", "white", "blue", "orange", "cyan", "turtle",]
+    let pastWords = ["", ""]
+    let word = ""
+    let score = 0
+
+    const startButton = document.getElementById("startBtn")
+    const wordDisplay = document.getElementById("wordPrinter");
+    const seenButton = document.getElementById("seenBtn")
+    const newButton = document.getElementById("newBtn")
+    const scoreDisplay = document.getElementById("scorePrinter")
+
+
+
+    function start(){
+        startButton.style.visibility = "hidden"
+        console.log("Start Function has been activated")
+        game()
+    }
+
+    function game(){
+        const randomWord = words[Math.floor(Math.random() * words.length)]
+        scoreDisplay.style.visibility = "visible"
+        wordDisplay.style.visibility = "visible"
+        seenButton.style.visibility = "visible"
+        newButton.style.visibility = "visible"
+        word = randomWord;
+        wordDisplay.innerHTML = word;
+    }
+
+    function checkAnswerNew(){
+        console.log("Check Answer New Activated")
+        if(pastWords.includes(word)) {
+            console.log("Word has been used before")
+            window.alert(`Game Over, you scored ${score}`)
+            location.reload();
+        } else {
+            pastWords.push(word);
+            console.log("Word has not been used before")
+            score++
+            scoreDisplay.innerHTML = score;
+            console.log(score);
+            game()
+        }
+    }
+
+    function checkAnswerSeen(){
+        console.log("Check Answer Seen Activated");
+        if(pastWords.includes(word)){
+            console.log("Word has been used before")
+            score++
+            scoreDisplay.innerHTML = score;
+            console.log(score)
+            game()
+        } else {
+            console.log("Word has not been used before")
+            window.alert(`Game Over, you scored ${score}`)
+            location.reload();
+        }
+    }
+
+</script>
+
+</html>
