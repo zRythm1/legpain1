@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6 Intel | Maps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="body">
+<h1>Map Callouts</h1>
+<h2 id="scoreDisplay" class="score">Score: 0</h2>
+
+<div class="mapSelectorDiv">
+    <select class="mapSelector" name="Maps" id="mapSelectionDropdown">
+        <option value="clubhouse">Club House</option>
+        <option value="bank">Bank</option>
+        <option value="chalet">Chalet</option>
+        <option value="consulate">Consulate</option>
+      </select>
+</div>
+
+
+<div class="imageDiv">
+    <img id="imagePrinter" class="imageClass" src="aa.jpg" alt="">
+</div>
+
+<div class="inputDiv">
+    <input class="inputClass" id="input" type="text">
+</div>
+
+<div class="backButtonDiv">
+    <button onclick="location.href='index.html'" class="backBtn">Back</button>
+</div>
+
+
+
+
+<script>
+
+let inputBox = document.getElementById("input")
+let score = 0;
+const scorePrinter = document.getElementById("scoreDisplay")
+
+const body = document.getElementById("body")
+const bankImages = ['']
+bankImages[0] = "Images/clubhouse/amoury_lockers.jpg"
+bankImages[1] = "Images/clubhouse/bar.jpg"
+bankImages[2] = "Images/clubhouse/bedroom_bathroom.jpg"
+bankImages[3] = "Images/clubhouse/bedroom.jpg"
+bankImages[4] = "Images/clubhouse/blue_stairs.jpg"
+bankImages[5] = "Images/clubhouse/blue.jpg"
+bankImages[6] = "Images/clubhouse/cash_room.jpg"
+bankImages[7] = "Images/clubhouse/changing_room.jpg"
+bankImages[8] = "Images/clubhouse/church.jpg"
+bankImages[9] = "Images/clubhouse/construction.jpg"
+bankImages[10] = "Images/clubhouse/dirt.jpg"
+bankImages[11] = "Images/clubhouse/dummies.jpg"
+bankImages[12] = "Images/clubhouse/freezer.jpg"
+bankImages[13] = "Images/clubhouse/garage.jpg"
+bankImages[14] = "Images/clubhouse/gym.jpg"
+bankImages[15] = "Images/clubhouse/jacuzzi_wall.jpg"
+bankImages[16] = "Images/clubhouse/jacuzzi.jpg"
+bankImages[17] = "Images/clubhouse/kitchen.jpg"
+bankImages[18] = "Images/clubhouse/lockers.jpg"
+bankImages[19] = "Images/clubhouse/logistics_hatch.jpg"
+bankImages[20] = "Images/clubhouse/logistics.jpg"
+bankImages[21] = "Images/clubhouse/lounge.jpg"
+bankImages[22] = "Images/clubhouse/main_entrance.jpg"
+bankImages[23] = "Images/clubhouse/main_stairs.jpg"
+bankImages[24] = "Images/clubhouse/moto.jpg"
+bankImages[25] = "Images/clubhouse/oil_pit.jpg"
+bankImages[26] = "Images/clubhouse/pool_table.jpg"
+bankImages[27] = "Images/clubhouse/rafters.jpg"
+bankImages[28] = "Images/clubhouse/red_stairs.jpg"
+bankImages[29] = "Images/clubhouse/server_room.jpg"
+bankImages[30] = "Images/clubhouse/side_entrance.jpg"
+bankImages[31] = "Images/clubhouse/stage.jpg"
+bankImages[32] = "Images/clubhouse/stock.jpg"
+bankImages[33] = "Images/clubhouse/storage.jpg"
+bankImages[34] = "Images/clubhouse/strip_hall.jpg"
+bankImages[35] = "Images/clubhouse/stripclub.jpg"
+bankImages[36] = "Images/clubhouse/toilets.jpg"
+bankImages[37] = "Images/clubhouse/top_of_red.jpg"
+bankImages[38] = "Images/clubhouse/cctv_breach.jpg"
+
+randomNumber = 0;
+lastRandomNumber = 
+correctAnswer1 = ""
+correctAnswer2 = ""
+correctAnswer3 = ""
+
+window.addEventListener('load', (e) =>{
+    console.log("Page loaded")
+    start()
+})
+
+body.addEventListener("keydown", (key) =>{
+        if(key.key === "Enter"){
+            checkAnswer()
+
+        }
+    })
+
+function start(){
+    inputBox.value = null;
+    randomNumber = Math.floor(Math.random() * bankImages.length)
+    if(randomNumber === lastRandomNumber){
+        console.log("Restarted because same number = same image")
+        start()
+    } else{
+        lastRandomNumber = randomNumber
+        console.log(`The last random number is now ${lastRandomNumber}`)
+        console.log(randomNumber)
+        console.log("start function has begun")
+        document.getElementById("imagePrinter").src = bankImages[randomNumber]
+        checkNumber()
+    }
+
+
+}
+
+function checkNumber(){
+    if(randomNumber == 0){
+        correctAnswer1 = "armoury"
+        correctAnswer2 = "armoury lockers"
+        correctAnswer3 = "lockers"
+    }
+    if(randomNumber == 1){
+        correctAnswer1 = "bar"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 2){
+        correctAnswer1 = "bathroom"
+        correctAnswer2 = "toilet"
+        correctAnswer3 = "shower"
+    }
+    if(randomNumber == 3){
+        correctAnswer1 = "bedroom"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 4){
+        correctAnswer1 = "blue stairs"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 5){
+        correctAnswer1 = "blue"
+        correctAnswer2 = "utility room"
+        correctAnswer3 = "utility"
+    }
+
+    if(randomNumber == 6){
+        correctAnswer1 = "cash"
+        correctAnswer2 = "cash room"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 7){
+        correctAnswer1 = "changing room"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 8){
+        correctAnswer1 = "church"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 9){
+        correctAnswer1 = "construction"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 10){
+        correctAnswer1 = "dirt"
+        correctAnswer2 = "tunnel"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 11){
+        correctAnswer1 = "dummies"
+        correctAnswer2 = "armoury"
+        correctAnswer3 = "armoury lockers"
+    }
+    if(randomNumber == 12){
+        correctAnswer1 = "freezer"
+        correctAnswer2 = "meat"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 13){
+        correctAnswer1 = "garage"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 14){
+        correctAnswer1 = "gym"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 15){
+        correctAnswer1 = "jacuzzi wall"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 16){
+        correctAnswer1 = "jacuzzi"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 17){
+        correctAnswer1 = "kitchen"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 18){
+        correctAnswer1 = "lockers"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 19){
+        correctAnswer1 = "logistics hatch"
+        correctAnswer2 = "hatch logistics"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 20){
+        correctAnswer1 = "logistics"
+        correctAnswer2 = "logistics office"
+        correctAnswer3 = "office"
+    }
+    if(randomNumber == 21){
+        correctAnswer1 = "lounge"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 22){
+        correctAnswer1 = "main entrance"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 23){
+        correctAnswer1 = "main stairs"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 24){
+        correctAnswer1 = "moto"
+        correctAnswer2 = "memorial"
+        correctAnswer3 = "memorial room"
+    }
+    if(randomNumber == 25){
+        correctAnswer1 = "ladder"
+        correctAnswer2 = "oil pit"
+        correctAnswer3 = "pit"
+    }
+    if(randomNumber == 26){
+        correctAnswer1 = "pool table"
+        correctAnswer2 = "pool"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 27){
+        correctAnswer1 = "rafters"
+        correctAnswer2 = "catwalk"
+        correctAnswer3 = "balcony"
+    }
+    if(randomNumber == 28){
+        correctAnswer1 = "red stairs"
+        correctAnswer2 = "metal stairs"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 29){
+        correctAnswer1 = "cctv"
+        correctAnswer2 = "server"
+        correctAnswer3 = "cctv room"
+    }
+    if(randomNumber == 30){
+        correctAnswer1 = "side entrance"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 31){
+        correctAnswer1 = "stage"
+        correctAnswer2 = "projector"
+        correctAnswer3 = "bar"
+    }
+    if(randomNumber == 32){
+        correctAnswer1 = "stage"
+        correctAnswer2 = "projector"
+        correctAnswer3 = "bar"
+    }
+    if(randomNumber == 33){
+        correctAnswer1 = "storage"
+        correctAnswer2 = "top of blue"
+        correctAnswer3 = "top blue stairs"
+    }
+    if(randomNumber == 34){
+        correctAnswer1 = "strip hall"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 35){
+        correctAnswer1 = "strip club"
+        correctAnswer2 = "strip"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 36){
+        correctAnswer1 = "toilets"
+        correctAnswer2 = "bathroom"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 37){
+        correctAnswer1 = "top of red"
+        correctAnswer2 = "metal hall"
+        correctAnswer3 = "top east stairs"
+    }
+    if(randomNumber == 38){
+        correctAnswer1 = "cctv wall"
+        correctAnswer2 = "cctv breach"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+}
+
+function checkAnswer(){
+    console.log("check answer activated")
+    console.log(`Correct Answer 1 = ${correctAnswer1}`)
+    if(inputBox.value === correctAnswer1 || correctAnswer2 || correctAnswer3){
+        console.log("Correct Answer")
+        score++
+        scorePrinter.innerHTML = `Score: ${score}`
+        start()
+    } else {
+        console.log("You have not yet found the correct answer");
+    }
+}
+
+
+
+
+</script>
+</html>
