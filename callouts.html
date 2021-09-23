@@ -279,6 +279,9 @@ function start(){
         if(bankDropdown.selected === true){
             checkNumberBank()
         }
+        if(borderDropdown.selected === true){
+            checkNumberBorder()
+        }
     }
 
 
@@ -288,13 +291,15 @@ function start(){
 
 function checkNumberClub(){
     correctAnswer1 = ""
-    correctAnswer1 = ""
-    correctAnswer1 = ""
+    correctAnswer2 = ""
+    correctAnswer3 = ""
 
     if(randomNumber == 0){
         correctAnswer1 = "armoury"
         correctAnswer2 = "armoury lockers"
         correctAnswer3 = "lockers"
+        correctAnswer4 = "armory"
+        correctAnswer5 = "armory lockers"
     }
     if(randomNumber == 1){
         correctAnswer1 = "bar"
@@ -595,6 +600,122 @@ function checkNumberBank(){
     }
 }
 
+function checkNumberBorder(){
+    if(randomNumber == 0){
+        correctAnswer1 = "archives"
+    }
+    if(randomNumber == 1){
+        correctAnswer1 = "armory desk"
+        correctAnswer2 = "armoury desk"
+        correctAnswer3 = "desk"
+    }
+    if(randomNumber == 2){
+        correctAnswer1 = "armory lockers"
+        correctAnswer2 = "armoury lockers"
+        correctAnswer3 = "main breach"
+    }
+    if(randomNumber == 3){
+        correctAnswer1 = "armory lockers"
+        correctAnswer2 = "armoury lockers"
+        correctAnswer3 = "armoury"
+        correctAnswer4 = "armory"
+        correctAnswer5 = "lockers"
+    }
+    if(randomNumber == 4){
+        correctAnswer1 = "balcony"
+        correctAnswer2 = "rafters"
+        correctAnswer3 = "catwalk"
+    }
+    if(randomNumber == 5){
+        correctAnswer1 = "break room"
+    }
+    if(randomNumber == 6){
+        correctAnswer1 = "break room"
+    }
+    if(randomNumber == 7){
+        correctAnswer1 = "construction"
+        correctAnswer2 = "workshop"
+    }
+    if(randomNumber == 8){
+        correctAnswer1 = "customs"
+        correctAnswer2 = "customs inspection"
+    }
+    if(randomNumber == 9){ // NEED NAMING
+        correctAnswer1 = "bus balcony"
+        correctAnswer2 = "outside archives window"
+        correctAnswer3 = "vents"
+        correctAnswer4 = "ventilation"
+        correctAnswer5 = "bridge"
+    }
+    if(randomNumber == 10){
+        correctAnswer1 = "detention"
+    }
+    if(randomNumber == 11){
+        correctAnswer1 = "east stairs"
+    }
+    if(randomNumber == 12){
+        correctAnswer1 = "east stairs"
+        correctAnswer2 = "top east stairs"
+        correctAnswer3 = "top of east stairs"
+    }
+    if(randomNumber == 13){
+        correctAnswer1 = "main entrance"
+        correctAnswer2 = "exit hallway"
+    }
+    if(randomNumber == 14){
+        correctAnswer1 = "fountain"
+    }
+    if(randomNumber == 15){
+        correctAnswer1 = "metal stairs"
+        correctAnswer2 = "main stairs"
+        correctAnswer3 = "metal"
+    }
+    if(randomNumber == 16){
+        correctAnswer1 = "metal stairs"
+        correctAnswer2 = "main stairs"
+        correctAnswer3 = "metal"
+    }
+    if(randomNumber == 17){
+        correctAnswer1 = "office"
+        correctAnswer2 = "offices"
+    }
+    if(randomNumber == 18){
+        correctAnswer1 = "passport check"
+        correctAnswer2 = "passport"
+    }
+    if(randomNumber == 19){
+        correctAnswer1 = "sandwich"
+    }
+    if(randomNumber == 20){
+        correctAnswer1 = "security room"
+        correctAnswer2 = "security"
+
+    }
+    if(randomNumber == 21){
+        correctAnswer1 = "servers"
+        correctAnswer2 = "server room"
+    }
+    if(randomNumber == 22){
+        correctAnswer1 = "showers"
+        correctAnswer2 = "bathroom"
+    }
+    if(randomNumber == 23){
+        correctAnswer1 = "supply room"
+        correctAnswer2 = "supply"
+    }
+    if(randomNumber == 24){
+        correctAnswer1 = "tellers"
+    }
+    if(randomNumber == 25){
+        correctAnswer1 = "ventilation"
+        correctAnswer2 = "vents"
+    }
+    if(randomNumber == 26){
+        correctAnswer1 = "waiting room"
+        correctAnswer2 = "lobby"
+    }
+
+}
 
 function skip(){
     window.alert(`The correct answer was: ${correctAnswer1} / ${correctAnswer2} / ${correctAnswer3}`)
@@ -603,7 +724,7 @@ function skip(){
 
 
 function checkAnswer(){
-    if(inputBox.value.toLowerCase() == correctAnswer1 || inputBox.value.toLowerCase() == correctAnswer2 || inputBox.value.toLowerCase() == correctAnswer3){
+    if(inputBox.value.toLowerCase() == correctAnswer1 || inputBox.value.toLowerCase() == correctAnswer2 || inputBox.value.toLowerCase() == correctAnswer3 || inputBox.value.toLowerCase() == correctAnswer4 || inputBox.value.toLowerCase() == correctAnswer5  ){
         score++
         scorePrinter.innerHTML = `Score: ${score}`
         start();
