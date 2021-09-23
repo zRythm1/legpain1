@@ -24,7 +24,7 @@
 </body>
 
 <script>
-const operatorNames = ["Eliza Cohen", "Miles Campbell", "Jack Estrada", "Jordan Trace", "Gilles Touré", "Emmanuelle Pichon","Gustave Kateb", "Seamus Cowden", "Mark Chander", "James Porter", "Mike Baker"] 
+const operatorNames = ["Eliza Cohen", "Miles Campbell", "Jack Estrada", "Jordan Trace", "Gilles Touré", "Emmanuelle Pichon","Gustave Kateb", "Seamus Cowden", "Mark Chander", "James Porter", "Mike Baker", "Julien Nizan", "Dominic Brunsmeier", "Marius Streicher", "Monika Weiss", "Elias Kotz"] 
 let correctAnswer = ""
 let lastName = ""
 let operatorName = ""
@@ -98,6 +98,24 @@ function checkAnswer(){
     if(operatorName === "Mike Baker"){
         correctAnswer = "thatcher"
     }
+    if(operatorName === "Julien Nizan"){
+        correctAnswer = "rook"
+    }
+    if(operatorName === "Dominic Brunsmeier"){
+        correctAnswer = "bandit"
+    }
+    if(operatorName === "Marius Streicher"){
+        correctAnswer = "jager"
+    }
+    if(operatorName === "Monika Weiss"){
+        correctAnswer = "iq"
+    }
+    if(operatorName === "Elias Kotz"){
+        correctAnswer = "blitz"
+    }
+
+
+    
 
     if(input.value === correctAnswer){
         console.log("Correct Answer")

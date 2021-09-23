@@ -27,10 +27,9 @@ h1 {
 }
 
 .inputDiv {
-    position: fixed;
-    top: 77%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .btn {
@@ -48,10 +47,9 @@ h1 {
 }
 
 .imageDiv {
-    position: fixed;
-    top: 40%;
-    left: 49%;
-    transform: translate(-47%, -30%);
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .imageClass {
@@ -77,6 +75,7 @@ h1 {
     border: 7px;
     border-radius: 8px;
     box-shadow: 1px 1px 9px rgb(32, 32, 32);
+    margin-left: 10px;
 }
 
 .backBtn:hover {
@@ -86,14 +85,11 @@ h1 {
 }
 
 .backButtonDiv {
-    margin-top: 32px;
-    position: fixed;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
 }
-
-
 .score {
     display: flex;
     justify-content: center;
