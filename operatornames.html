@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6 Intel | Operator Names</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="body">
+<h1>Operator Names</h1>
+<h2 id="scorePrinter"class="score">Score: 0</h2>
+<div class="buttonDiv">
+    <h2 class="textDisplay" id="textDisplay">yes</h2>
+    <input class="inputClass" id="input" type="text">
+</div>
+
+<div class="backButtonDiv">
+    <button onclick="location.href='index.html'" class="backBtn">Back</button>
+</div>
+
+
+
+</body>
+
+<script>
+const operatorNames = ["Eliza Cohen", "Miles Campbell", "Jack Estrada", "Jordan Trace", "Gilles Touré", "Emmanuelle Pichon","Gustave Kateb", "Seamus Cowden", "Mark Chander", "James Porter", "Mike Baker"] 
+let correctAnswer = ""
+let lastName = ""
+let operatorName = ""
+let score = 0
+
+let textPrinter = document.getElementById("textDisplay")
+const scorePrinter = document.getElementById("scorePrinter")
+const body = document.getElementById("body")
+const input = document.getElementById("input")
+
+
+window.addEventListener('load', (e) =>{
+    console.log("Loaded");
+    start();
+})
+
+body.addEventListener('keydown', (key)=>{
+    if(key.key === "Enter"){
+        console.log("enter pressed");
+        checkAnswer()
+    }
+
+})
+
+function start(){
+    let randomName = operatorNames[Math.floor(Math.random() * operatorNames.length)]
+    console.log(`random name = ${randomName}`)
+    if(randomName === lastName){
+        console.log("Same name twice, doesn't work");
+        start()
+    } else{
+        operatorName = randomName
+        textPrinter.innerHTML = operatorName
+        console.log(operatorName)
+    }
+
+}
+
+function checkAnswer(){
+    console.log("Check answer activated")
+    if(operatorName === "Eliza Cohen"){
+        correctAnswer = "ash"
+    }
+    if(operatorName === "Miles Campbell"){
+        correctAnswer = "castle"
+    }
+    if(operatorName === "Jack Estrada"){
+        correctAnswer = "pulse"
+    }
+    if(operatorName === "Jordan Trace"){
+        correctAnswer = "thermite"
+    }
+    if(operatorName === "Gilles Touré"){
+        correctAnswer = "montagne"
+    }
+    if(operatorName === "Emmanuelle Pichon"){
+        correctAnswer = "twitch"
+    }
+    if(operatorName === "Gustave Kateb"){
+        correctAnswer = "doc"
+    }
+    if(operatorName === "Seamus Cowden"){
+        correctAnswer = "sledge"
+    }
+    if(operatorName === "Mark Chander"){
+        correctAnswer = "mute"
+    }
+    if(operatorName === "James Porter"){
+        correctAnswer = "smoke"
+    }
+    if(operatorName === "Mike Baker"){
+        correctAnswer = "thatcher"
+    }
+
+    if(input.value === correctAnswer){
+        console.log("Correct Answer")
+        lastName = correctAnswer
+        score++
+        scorePrinter.innerHTML = `Score: ${score}`
+        input.value = ""
+        lastName = operatorName
+        console.log(`last name is now ${operatorName}`)
+        start()
+    } else {
+        console.log("incorrect answer")
+    }
+    console.log(input.value)
+
+
+}
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,136 @@
+body {
+    background-color: rgb(49, 49, 49);
+}
+
+h1 {
+    display: flex;
+    font-size: 64px;
+    color: white;
+    font-family: sans-serif;
+    justify-content: center;
+}
+
+.footer {
+    position: fixed;
+    color: white;
+    font-family: sans-serif;
+    justify-content: center;
+    font-weight: 100;
+    margin-top: 850px;
+}
+
+.buttonDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputDiv {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    padding: 32px;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    font-weight: 200;
+    font-family: sans-serif;
+    background-color: rgb(58, 58, 58);
+    border: 7px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 9px rgb(32, 32, 32);
+}
+
+.imageDiv {
+    position: fixed;
+    top: 40%;
+    left: 49%;
+    transform: translate(-47%, -30%);
+}
+
+.imageClass {
+    max-width: 800px;
+    max-height: 800px;
+    
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 30px rgb(32, 32, 32);
+    transition: all 0.5s;
+}
+
+.backBtn {
+    align-items: center;
+    padding: 16px;
+    font-size: 32px;
+    color: white;
+    font-weight: 200;
+    font-family: sans-serif;
+    background-color: rgb(58, 58, 58);
+    border: 7px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 9px rgb(32, 32, 32);
+}
+
+.backBtn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 30px rgb(32, 32, 32);
+    transition: all 0.5s;
+}
+
+.backButtonDiv {
+    margin-top: 32px;
+    position: fixed;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.score {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+
+.mapSelectorDiv {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+}
+
+.mapSelector {
+    text-align: center;
+    font-size: 24px;
+    background-color: rgb(54, 54, 54);
+    border: 0px;
+    color: white;
+}
+
+
+.textDisplay {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    color: white;
+    font-size: 32px;
+}
+
+.inputClass {
+    padding: 32px 92px;
+    text-align: center;
+    border: 5px;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    font-size: 32px;
+    border-radius: 16px;
+}

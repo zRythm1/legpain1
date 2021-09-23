@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6 Intel | Maps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="body">
+<h1>Map Callouts</h1>
+<h2 id="scoreDisplay" class="score">Score: 0</h2>
+
+<div class="mapSelectorDiv">
+    <select class="mapSelector" name="Maps" id="mapSelectionDropdown">
+        <option id="clubhouseDropdown" value="clubhouse">Club House</option>
+        <option id="bankDropdown" value="bank">Bank</option>
+        <option value="chalet">Chalet</option>
+        <option value="consulate">Consulate</option>
+      </select>
+</div>
+
+
+<div class="imageDiv">
+    <img id="imagePrinter" class="imageClass" src="aa.jpg" alt="">
+</div>
+
+<div class="inputDiv">
+    <input class="inputClass" id="input" type="text">
+</div>
+
+<div class="backButtonDiv">
+    <button onclick="location.href='index.html'" class="backBtn">Back</button>
+    <button onclick='skip()' class="backBtn">Skip</button>
+</div>
+
+
+
+
+<script>
+
+let inputBox = document.getElementById("input")
+let score = 0;
+const scorePrinter = document.getElementById("scoreDisplay")
+
+// MAP IMAGES
+const body = document.getElementById("body")
+const clubImages = ['']
+clubImages[0] = "Images/clubhouse/amoury_lockers.jpg"
+clubImages[1] = "Images/clubhouse/bar.jpg"
+clubImages[2] = "Images/clubhouse/bedroom_bathroom.jpg"
+clubImages[3] = "Images/clubhouse/bedroom.jpg"
+clubImages[4] = "Images/clubhouse/blue_stairs.jpg"
+clubImages[5] = "Images/clubhouse/blue.jpg"
+clubImages[6] = "Images/clubhouse/cash_room.jpg"
+clubImages[7] = "Images/clubhouse/changing_room.jpg"
+clubImages[8] = "Images/clubhouse/church.jpg"
+clubImages[9] = "Images/clubhouse/construction.jpg"
+clubImages[10] = "Images/clubhouse/dirt.jpg"
+clubImages[11] = "Images/clubhouse/dummies.jpg"
+clubImages[12] = "Images/clubhouse/freezer.jpg"
+clubImages[13] = "Images/clubhouse/garage.jpg"
+clubImages[14] = "Images/clubhouse/gym.jpg"
+clubImages[15] = "Images/clubhouse/jacuzzi_wall.jpg"
+clubImages[16] = "Images/clubhouse/jacuzzi.jpg"
+clubImages[17] = "Images/clubhouse/kitchen.jpg"
+clubImages[18] = "Images/clubhouse/lockers.jpg"
+clubImages[19] = "Images/clubhouse/logistics_hatch.jpg"
+clubImages[20] = "Images/clubhouse/logistics.jpg"
+clubImages[21] = "Images/clubhouse/lounge.jpg"
+clubImages[22] = "Images/clubhouse/main_entrance.jpg"
+clubImages[23] = "Images/clubhouse/main_stairs.jpg"
+clubImages[24] = "Images/clubhouse/moto.jpg"
+clubImages[25] = "Images/clubhouse/oil_pit.jpg"
+clubImages[26] = "Images/clubhouse/pool_table.jpg"
+clubImages[27] = "Images/clubhouse/rafters.jpg"
+clubImages[28] = "Images/clubhouse/red_stairs.jpg"
+clubImages[29] = "Images/clubhouse/server_room.jpg"
+clubImages[30] = "Images/clubhouse/side_entrance.jpg"
+clubImages[31] = "Images/clubhouse/stage.jpg"
+clubImages[32] = "Images/clubhouse/stock.jpg"
+clubImages[33] = "Images/clubhouse/storage.jpg"
+clubImages[34] = "Images/clubhouse/strip_hall.jpg"
+clubImages[35] = "Images/clubhouse/stripclub.jpg"
+clubImages[36] = "Images/clubhouse/toilets.jpg"
+clubImages[37] = "Images/clubhouse/top_of_red.jpg"
+clubImages[38] = "Images/clubhouse/cctv_breach.jpg"
+
+const bankImages = ['']
+bankImages[0] = "Images/bank/archives.jpg"
+bankImages[1] = "Images/bank/atm.jpg"
+bankImages[2] = "Images/bank/banana.jpg"
+bankImages[3] = "Images/bank/bottom_of_skylight.jpg"
+bankImages[4] = "Images/bank/car_park.jpg"
+bankImages[5] = "Images/bank/cctv.jpg"
+bankImages[6] = "Images/bank/CEO.jpg"
+bankImages[7] = "Images/bank/conference_room.jpg"
+bankImages[8] = "Images/bank/dirt.jpg"
+bankImages[9] = "Images/bank/electrical.jpg"
+bankImages[10] = "Images/bank/elevator_hatch.jpg"
+bankImages[11] = "Images/bank/front_desk.jpg"
+bankImages[12] = "Images/bank/garage_ramp.jpg"
+bankImages[13] = "Images/bank/garage.jpg"
+bankImages[14] = "Images/bank/gold_vault.jpg"
+bankImages[15] = "Images/bank/janitor.jpg"
+bankImages[16] = "Images/bank/lobby_desk.jpg"
+bankImages[17] = "Images/bank/lobby_office.jpg"
+bankImages[18] = "Images/bank/lobby_stairs.jpg"
+bankImages[19] = "Images/bank/lobby.jpg"
+bankImages[20] = "Images/bank/lockers.jpg"
+bankImages[21] = "Images/bank/lounge.jpg"
+bankImages[22] = "Images/bank/main_stairs.jpg"
+bankImages[23] = "Images/bank/open_area_office.jpg"
+bankImages[24] = "Images/bank/open_area.jpg"
+bankImages[25] = "Images/bank/red.jpg"
+bankImages[26] = "Images/bank/server_room.jpg"
+bankImages[27] = "Images/bank/server_stairs.jpg"
+bankImages[28] = "Images/bank/skylight_stairs.jpg"
+bankImages[29] = "Images/bank/skylight.jpg"
+bankImages[30] = "Images/bank/staff_room.jpg"
+bankImages[31] = "Images/bank/stock_hall.jpg"
+bankImages[32] = "Images/bank/stock.jpg"
+bankImages[33] = "Images/bank/tellers.jpg"
+bankImages[34] = "Images/bank/terrace.jpg"
+bankImages[35] = "Images/bank/vault_lobby.jpg"
+bankImages[36] = "Images/bank/vault.jpg"
+
+
+let mapSelections = document.getElementById("mapSelectionDropdown")
+
+const clubhouseDropdown = document.getElementById("clubhouseDropdown")
+const bankDropdown = document.getElementById("bankDropdown")
+
+let mapArray = clubImages
+
+
+mapSelections.addEventListener("change", function(){
+    if(bankDropdown.selected === true){
+        console.log("Bank is now selected");
+        mapArray = bankImages;
+        console.log(`Map Array = ${mapArray}`)
+        start();
+    }
+    if(clubhouseDropdown.selected === true){
+        console.log("Clubhouse is now selected");
+        mapArray = clubImages;
+        start();
+    }
+})
+
+console.log(`Is bank dropdow selected ${bankDropdown.selected}`)
+console.log(`Is clubhouse dropdow selected ${clubhouseDropdown.selected}`)
+
+
+
+
+randomNumber = 0;
+lastRandomNumber = 
+correctAnswer1 = ""
+correctAnswer2 = ""
+correctAnswer3 = ""
+
+window.addEventListener('load', (e) =>{
+    console.log("Page loaded")
+    start()
+})
+
+body.addEventListener("keydown", (key) =>{
+        if(key.key === "Enter"){
+            checkAnswer()
+
+        }
+    })
+
+
+
+
+function start(){
+    inputBox.value = null;
+    randomNumber = Math.floor(Math.random() * mapArray.length)
+    if(randomNumber === lastRandomNumber){
+        console.log("Restarted because same number = same image")
+        start()
+    } else{
+        lastRandomNumber = randomNumber
+        console.log(`The last random number is now ${lastRandomNumber}`)
+        console.log(randomNumber)
+        console.log("start function has begun")
+        document.getElementById("imagePrinter").src = mapArray[randomNumber]
+        if(clubhouseDropdown.selected === true){
+            checkNumberClub()
+        }
+        if(bankDropdown.selected === true){
+            checkNumberBank()
+        }
+    }
+
+
+}
+
+
+function skip(){
+    window.alert(`The correct answer was: ${correctAnswer1}`)
+    start();
+}
+
+function checkNumberClub(){
+    if(randomNumber == 0){
+        correctAnswer1 = "armoury"
+        correctAnswer2 = "armoury lockers"
+        correctAnswer3 = "lockers"
+    }
+    if(randomNumber == 1){
+        correctAnswer1 = "bar"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 2){
+        correctAnswer1 = "bathroom"
+        correctAnswer2 = "toilet"
+        correctAnswer3 = "shower"
+    }
+    if(randomNumber == 3){
+        correctAnswer1 = "bedroom"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 4){
+        correctAnswer1 = "blue stairs"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 5){
+        correctAnswer1 = "blue"
+        correctAnswer2 = "utility room"
+        correctAnswer3 = "utility"
+    }
+
+    if(randomNumber == 6){
+        correctAnswer1 = "cash"
+        correctAnswer2 = "cash room"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 7){
+        correctAnswer1 = "changing room"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 8){
+        correctAnswer1 = "church"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 9){
+        correctAnswer1 = "construction"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 10){
+        correctAnswer1 = "dirt"
+        correctAnswer2 = "tunnel"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 11){
+        correctAnswer1 = "dummies"
+        correctAnswer2 = "armoury"
+        correctAnswer3 = "armoury lockers"
+    }
+    if(randomNumber == 12){
+        correctAnswer1 = "freezer"
+        correctAnswer2 = "meat"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 13){
+        correctAnswer1 = "garage"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 14){
+        correctAnswer1 = "gym"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 15){
+        correctAnswer1 = "jacuzzi wall"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 16){
+        correctAnswer1 = "jacuzzi"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 17){
+        correctAnswer1 = "kitchen"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 18){
+        correctAnswer1 = "lockers"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 19){
+        correctAnswer1 = "logistics hatch"
+        correctAnswer2 = "hatch logistics"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 20){
+        correctAnswer1 = "logistics"
+        correctAnswer2 = "logistics office"
+        correctAnswer3 = "office"
+    }
+    if(randomNumber == 21){
+        correctAnswer1 = "lounge"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 22){
+        correctAnswer1 = "main entrance"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 23){
+        correctAnswer1 = "main stairs"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 24){
+        correctAnswer1 = "moto"
+        correctAnswer2 = "memorial"
+        correctAnswer3 = "memorial room"
+    }
+    if(randomNumber == 25){
+        correctAnswer1 = "ladder"
+        correctAnswer2 = "oil pit"
+        correctAnswer3 = "pit"
+    }
+    if(randomNumber == 26){
+        correctAnswer1 = "pool table"
+        correctAnswer2 = "pool"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 27){
+        correctAnswer1 = "rafters"
+        correctAnswer2 = "catwalk"
+        correctAnswer3 = "balcony"
+    }
+    if(randomNumber == 28){
+        correctAnswer1 = "red stairs"
+        correctAnswer2 = "metal stairs"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 29){
+        correctAnswer1 = "cctv"
+        correctAnswer2 = "server"
+        correctAnswer3 = "cctv room"
+    }
+    if(randomNumber == 30){
+        correctAnswer1 = "side entrance"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 31){
+        correctAnswer1 = "stage"
+        correctAnswer2 = "projector"
+        correctAnswer3 = "bar"
+    }
+    if(randomNumber == 32){
+        correctAnswer1 = "stock"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 33){
+        correctAnswer1 = "storage"
+        correctAnswer2 = "top of blue"
+        correctAnswer3 = "top blue stairs"
+    }
+    if(randomNumber == 34){
+        correctAnswer1 = "strip hall"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 35){
+        correctAnswer1 = "strip club"
+        correctAnswer2 = "strip"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 36){
+        correctAnswer1 = "toilets"
+        correctAnswer2 = "bathroom"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 37){
+        correctAnswer1 = "top of red"
+        correctAnswer2 = "metal hall"
+        correctAnswer3 = "top east stairs"
+    }
+    if(randomNumber == 38){
+        correctAnswer1 = "cctv wall"
+        correctAnswer2 = "cctv breach"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    } else {
+        console.log("failed");
+    }
+}
+
+function checkNumberBank(){
+    console.log("Check number bank activated")
+    if(randomNumber == 0){
+        correctAnswer1 = "archives"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 1){
+        correctAnswer1 = "atm"
+        correctAnswer2 = "atms"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 2){
+        correctAnswer1 = "banana"
+        correctAnswer2 = "balcony"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 3){
+        correctAnswer1 = "bottom skylight"
+        correctAnswer2 = "bottom square"
+        correctAnswer3 = "skylight stairwell"
+    }
+    if(randomNumber == 4){
+        correctAnswer1 = "car park"
+        correctAnswer2 = "garage"
+        correctAnswer3 = "upper garage"
+    }
+    if(randomNumber == 5){
+        correctAnswer1 = "cctv"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 6){
+        correctAnswer1 = "ceo"
+        correctAnswer2 = "ceo office"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 7){
+        correctAnswer1 = "conference room"
+        correctAnswer2 = "conference"
+        correctAnswer3 = "meeting room"
+    }
+    if(randomNumber == 8){
+        correctAnswer1 = "dirt"
+        correctAnswer2 = "tunnel"
+        correctAnswer3 = "tunnels"
+    }
+    if(randomNumber == 9){
+        correctAnswer1 = "electrical"
+        correctAnswer2 = "electrical room"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 10){ //elevator hatch dropdown area -- needs name
+        correctAnswer1 = "elevator hatch"
+        correctAnswer2 = "elevator construction"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 11){ 
+        correctAnswer1 = "front desk"
+        correctAnswer2 = "desk"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 12){ 
+        correctAnswer1 = "garage ramp"
+        correctAnswer2 = "ramp"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 13){ 
+        correctAnswer1 = "garage"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 14){ 
+        correctAnswer1 = "gold vault"
+        correctAnswer2 = "gold"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 15){ 
+        correctAnswer1 = "janitors"
+        correctAnswer2 = "janitor"
+        correctAnswer3 = "janitors closet"
+    }
+    if(randomNumber == 16){ 
+        correctAnswer1 = "tellers desk"
+        correctAnswer2 = "tellers"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 17){ 
+        correctAnswer1 = "loan office"
+        correctAnswer2 = "loans"
+        correctAnswer3 = "office"
+    }
+    if(randomNumber == 18){ 
+        correctAnswer1 = "lobby stairs"
+        correctAnswer2 = "spiral stairs"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 19){ 
+        correctAnswer1 = "lobby"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 20){ 
+        correctAnswer1 = "lockers"
+        correctAnswer2 = "locker"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 21){ 
+        correctAnswer1 = "lounge"
+        correctAnswer2 = "executive lounge"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 22){ 
+        correctAnswer1 = "main stairs"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 23){ 
+        correctAnswer1 = "admin office"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 24){ 
+        correctAnswer1 = "open area"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 25){ 
+        correctAnswer1 = "red"
+        correctAnswer2 = "secure hallway"
+        correctAnswer3 = "red hallway"
+    }
+    if(randomNumber == 26){ 
+        correctAnswer1 = "server room"
+        correctAnswer2 = "servers"
+        correctAnswer3 = "server"
+    }
+    if(randomNumber == 27){ 
+        correctAnswer1 = "server stairs"
+        correctAnswer2 = "blue stairs"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 28){ 
+        correctAnswer1 = "skylight stairs"
+        correctAnswer2 = "skylight stairwell"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 29){ 
+        correctAnswer1 = "skylight stairwell"
+        correctAnswer2 = "upper square"
+        correctAnswer3 = "upper skylight"
+    }
+    if(randomNumber == 30){ 
+        correctAnswer1 = "staff room"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 31){ 
+        correctAnswer1 = "stock hallway"
+        correctAnswer2 = "main hallway"
+        correctAnswer3 = "vending machine"
+    }
+    if(randomNumber == 32){ 
+        correctAnswer1 = "stock trading room"
+        correctAnswer2 = "trading room"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 33){ 
+        correctAnswer1 = "tellers office"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 34){ 
+        correctAnswer1 = "terrace"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 35){ 
+        correctAnswer1 = "vault lobby"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+    if(randomNumber == 36){ 
+        correctAnswer1 = "vault"
+        correctAnswer2 = "JASDUOIHSDFHSD"
+        correctAnswer3 = "JASDUOIHSDFHSD"
+    }
+}
+
+function checkAnswer(){
+    console.log("check answer activated")
+    console.log(`Correct Answer 1 = ${correctAnswer1}`)
+    console.log(inputBox.value);
+    if(inputBox.value == correctAnswer1 || inputBox.value === correctAnswer2 || inputBox.value == correctAnswer3){
+        console.log("Correct Answer")
+        score++
+        scorePrinter.innerHTML = `Score: ${score}`
+        start();
+    } else {
+        console.log("You have not yet found the correct answer");
+    }
+}
+
+
+
+
+</script>
+</html>
