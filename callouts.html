@@ -135,7 +135,7 @@ borderImages[4] = "Images/border/balcony.jpg"
 borderImages[5] = "Images/border/break_room.jpg"
 borderImages[6] = "Images/border/break_room2.jpg"
 borderImages[7] = "Images/border/construction.jpg"
-borderImages[8] = "Images/border/customers_inspection.jpg"
+borderImages[8] = "Images/border/customs_inspection.jpg"
 borderImages[9] = "Images/border/customs.jpg"
 borderImages[10] = "Images/border/detention.jpg"
 borderImages[11] = "Images/border/east_stairs.jpg"
@@ -246,6 +246,8 @@ lastRandomNumber5 =
 correctAnswer1 = ""
 correctAnswer2 = ""
 correctAnswer3 = ""
+correctAnswer4 = ""
+correctAnswer5 = ""
 
 window.addEventListener('load', (e) =>{
     start()
@@ -613,6 +615,8 @@ function checkNumberBorder(){
         correctAnswer1 = "armory lockers"
         correctAnswer2 = "armoury lockers"
         correctAnswer3 = "main breach"
+        correctAnswer4 = "armoury wall"
+        correctAnswer5 = "armory wall"
     }
     if(randomNumber == 3){
         correctAnswer1 = "armory lockers"
@@ -689,6 +693,7 @@ function checkNumberBorder(){
     if(randomNumber == 20){
         correctAnswer1 = "security room"
         correctAnswer2 = "security"
+        correctAnswer3 = "cctv"
 
     }
     if(randomNumber == 21){
@@ -700,8 +705,8 @@ function checkNumberBorder(){
         correctAnswer2 = "bathroom"
     }
     if(randomNumber == 23){
-        correctAnswer1 = "supply room"
-        correctAnswer2 = "supply"
+        correctAnswer1 = "waiting room"
+        correctAnswer2 = "lobby"
     }
     if(randomNumber == 24){
         correctAnswer1 = "tellers"
