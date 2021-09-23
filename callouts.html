@@ -216,41 +216,38 @@ let mapArray = clubImages
 
 mapSelections.addEventListener("change", function(){
     if(bankDropdown.selected === true){
-        console.log(`Map Array = Bank`)
         mapArray = bankImages;
         start();
     }
     if(clubhouseDropdown.selected === true){
-        console.log(`Map Array = ClubHouse`)
         mapArray = clubImages;
         start();
     }
     if(borderDropdown.selected === true){
-        console.log(`Map Array = Border`)
         mapArray = borderImages;
         start();
     }
     if(kanalDropdown.selected === true){
-        console.log(`Map Array = Kanal`)
         mapArray = kanalImages;
         start();
     }
 })
 
-console.log(`Is bank dropdow selected ${bankDropdown.selected}`)
-console.log(`Is clubhouse dropdow selected ${clubhouseDropdown.selected}`)
 
 
 
 
 randomNumber = 0;
-lastRandomNumber = 
+lastRandomNumber1 = 
+lastRandomNumber2 = 
+lastRandomNumber3 =
+lastRandomNumber4 =
+lastRandomNumber5 =   
 correctAnswer1 = ""
 correctAnswer2 = ""
 correctAnswer3 = ""
 
 window.addEventListener('load', (e) =>{
-    console.log("Page loaded")
     start()
 })
 
@@ -265,17 +262,17 @@ body.addEventListener("keydown", (key) =>{
 
 
 function start(){
+    correctAnswer1 = ""
+    correctAnswer2 = ""
+    correctAnswer3 = ""
     inputBox.value = null;
     randomNumber = Math.floor(Math.random() * mapArray.length)
-    if(randomNumber === lastRandomNumber){
-        console.log("Restarted because same number = same image")
+    if(randomNumber === lastRandomNumber1){
         start()
     } else{
-        lastRandomNumber = randomNumber
-        console.log(`The last random number is now ${lastRandomNumber}`)
-        console.log(randomNumber)
-        console.log("start function has begun")
+        lastRandomNumber1 = randomNumber
         document.getElementById("imagePrinter").src = mapArray[randomNumber]
+        console.log(randomNumber)
         if(clubhouseDropdown.selected === true){
             checkNumberClub()
         }
@@ -288,12 +285,12 @@ function start(){
 }
 
 
-function skip(){
-    window.alert(`The correct answer was: ${correctAnswer1} / ${correctAnswer2} / ${correctAnswer3}`)
-    start();
-}
 
 function checkNumberClub(){
+    correctAnswer1 = ""
+    correctAnswer1 = ""
+    correctAnswer1 = ""
+
     if(randomNumber == 0){
         correctAnswer1 = "armoury"
         correctAnswer2 = "armoury lockers"
@@ -445,12 +442,11 @@ function checkNumberClub(){
         correctAnswer1 = "cctv wall"
         correctAnswer2 = "cctv breach"
     } else {
-        console.log("failed");
+
     }
 }
 
 function checkNumberBank(){
-    console.log("Check number bank activated")
     if(randomNumber == 0){
         correctAnswer1 = "archives"
     }
@@ -599,17 +595,19 @@ function checkNumberBank(){
     }
 }
 
+
+function skip(){
+    window.alert(`The correct answer was: ${correctAnswer1} / ${correctAnswer2} / ${correctAnswer3}`)
+    start();
+}
+
+
 function checkAnswer(){
-    console.log("check answer activated")
-    console.log(`Correct Answer 1 = ${correctAnswer1}`)
-    console.log(inputBox.value.toLowerCase());
     if(inputBox.value.toLowerCase() == correctAnswer1 || inputBox.value.toLowerCase() == correctAnswer2 || inputBox.value.toLowerCase() == correctAnswer3){
-        console.log("Correct Answer")
         score++
         scorePrinter.innerHTML = `Score: ${score}`
         start();
     } else {
-        console.log("You have not yet found the correct answer");
     }
 }
 
